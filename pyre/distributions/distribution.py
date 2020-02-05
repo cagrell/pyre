@@ -20,7 +20,8 @@ def getDistributionType(type):
                          13:'TypeIIlargestValue',
                          14:'TypeIIIsmallestValue',
                          15:'Gumbel',
-                         16:'Weibull'}
+                         16:'Weibull',
+                         17:'Truncated_Normal'}
   return listOfDistributions[type]
 
 

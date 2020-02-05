@@ -19,7 +19,6 @@ class StochasticModel(object):
     self.Lo = None
     self.iLo = None
     self.call_function = 0
-    print('fork fork')
   
   def addVariable(self, obj):
     """
