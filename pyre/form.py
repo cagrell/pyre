@@ -45,7 +45,7 @@ class Form(object):
       - stochastic_model (StochasticModel): Information about the model
     """
 
-    def __init__(self, analysis_options=None, limit_state=None, stochastic_model=None):
+    def __init__(self, analysis_options=None, limit_state=None, stochastic_model=None, skip_correlation_calc = False):
 
         # The stochastic model
         if stochastic_model is None:
@@ -79,11 +79,12 @@ class Form(object):
         self.beta = None
         self.Pf = None
 
+        if not skip_correlation_calc:
         # Computation of modified correlation matrix R0
-        computeModifiedCorrelationMatrix(self)
+            computeModifiedCorrelationMatrix(self)
 
-        # Cholesky decomposition
-        computeCholeskyDecomposition(self)
+            # Cholesky decomposition
+            computeCholeskyDecomposition(self)
 
         # Compute starting point for the algorithm
         self.computeStartingPoint()
